@@ -1,2 +1,2 @@
-# Thinker Challenges
-## Doing some thinker challeges
+# Tkinter Challenges
+## Doing some tkinter challeges
