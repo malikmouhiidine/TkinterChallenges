@@ -1,4 +1,6 @@
+# importing the tkinter library
 from tkinter import *
+# importing random for random integer 
 from random import randint
 
 def Call():
