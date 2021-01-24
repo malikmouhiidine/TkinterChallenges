@@ -1,6 +1,6 @@
-# Is digitCreate a window that will ask the
+# Is digitCreate a window that will ask
 
-user to enter a number in a text box.
+the user to enter a number in a text box.
 When they click on a button it will
 use the code
 variable.isdigit() to check
