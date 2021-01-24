@@ -15,7 +15,7 @@ def Call():
         # returning false but that will not exit from the program
         return False
     # now if it's not a digit A.K.A integer
-    # that will wlear the entry box
+    # that will clear the entry box
     elif not entry_box.get().isdigit():
         # calling .delete() function to clear the entry_box
         entry_box.delete(0, 'end')
