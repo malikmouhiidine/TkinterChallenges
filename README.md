@@ -1,3 +1,3 @@
 # Tkinter Challenges
 
-Doing some tkinter challeges
+Doing some tkinter challenges
