@@ -13,23 +13,32 @@ def Call():
     if filename_box.get() == '':
         # returning false but that will not exit from the program
         return False
-    # now if the user enter the file extention too
-    elif filename_box.get()[-4:] == '.csv':
-        # so we pick the input without extension Then we add it ourselves 
-        # both ways work change it if you like too  
-        # of course change the path to be your downloads directory  
-        with open(f'C:\\Users\\frank\\Downloads\\{filename_box.get()[:len(filename_box.get())-4]}.csv', 'r', newline= '') as file:
-            csv_reader = csv.reader(file, delimiter=',')
-            # here where adding every row in the file to the list
-            for row in csv_reader:
-                list.append(row)
-    else:
-        # and if he didn't add the extention we just concating it with "".csv"
-        with open(f'C:\\Users\\frank\\Downloads\\{filename_box.get()}.csv', 'r', newline= '') as file:
-            csv_reader = csv.reader(file, delimiter=',')
-            # here where adding every row in the file to the list
-            for row in csv_reader:
-                list.append(row)
+    # here where trying so if file not found we raise an exception
+    try:
+        # now if the user enter the file extention too
+        if filename_box.get()[-4:] == '.csv':
+            # so we pick the input without extension Then we add it ourselves 
+            # both ways work change it if you like too  
+            # of course change the path to be your downloads directory  
+            with open(f'C:\\Users\\frank\\Downloads\\{filename_box.get()[:len(filename_box.get())-4]}.csv', 'r', newline= '') as file:
+                csv_reader = csv.reader(file, delimiter=',')
+                # here where adding every row in the file to the list
+                for row in csv_reader:
+                    list.append(row)
+        else:
+            # and if he didn't add the extention we just concating it with "".csv"
+            with open(f'C:\\Users\\frank\\Downloads\\{filename_box.get()}.csv', 'r', newline= '') as file:
+                csv_reader = csv.reader(file, delimiter=',')
+                # here where adding every row in the file to the list
+                for row in csv_reader:
+                    list.append(row)
+    # and here if file not found error occurs
+    except FileNotFoundError:
+        file_notfound_label = Label(window, text = "File not found." )
+        file_notfound_label.place(relx=0.4, rely=0.54, width = 100, height = 25, anchor=CENTER)
+        return False
+
+    
 
     # here is the listbox that going to show the content of the "list"
     list_box = Listbox(window)
